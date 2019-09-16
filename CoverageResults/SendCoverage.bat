@@ -1,0 +1,3 @@
+rem curl -Ls -o codacy-coverage-reporter-assembly.jar $(curl -Ls https://api.github.com/repos/codacy/codacy-coverage-reporter/releases/latest | jq -r '.assets | map({content_type, browser_download_url} | select(.content_type | contains("java-archive"))) | .[0].browser_download_url')
+SET CODACY_PROJECT_TOKEN=acdcb3335fb74a2f82565a882524614b
+java -jar codacy-coverage-reporter-assembly.jar report -l csharp --commit-uuid "a63822b2f197eb5b3ecc148adb113c07354d041b" -r coverage.cobertura.xml
